@@ -1,132 +1,221 @@
-# jCarley Cosmetics 💄✨
+# jCarley Cosmetics
 
-A vibrant, user-friendly **boutique cosmetics e-commerce website** built to deliver a seamless shopping experience.  
-This project focuses on creating an elegant, colorful, and responsive design that reflects the brand identity of **jCarley Cosmetics**, making it easy for customers to browse, shop, and engage with the brand online.
+A modern, responsive e-commerce website for jCarley Cosmetics built with Next.js 15, TypeScript, Tailwind CSS, and Supabase.
 
----
+## 🎨 Features
 
-## 🌟 Project Vision
+- **Modern Design**: Beautiful, mobile-first responsive design with custom brand colors
+- **Product Catalog**: Complete product browsing with filtering, search, and sorting
+- **Shopping Cart**: Add to cart functionality with wishlist support
+- **Contact System**: Contact form with company information and FAQ
+- **SEO Optimized**: Proper metadata, Open Graph, and Twitter Card support
+- **Performance**: Built with Next.js 15 and optimized for speed
+- **Type Safety**: Full TypeScript support throughout the application
 
-jCarley Cosmetics is a growing cosmetics shop with a physical store located in **Njoro Town, Kenya**.  
-This website will:
+## 🚀 Tech Stack
 
-- Showcase our diverse range of products in a **colorful and attractive layout**.  
-- Provide a **smooth online shopping experience** with cart and checkout features.  
-- Strengthen our **brand identity** with a fun, vibrant UI design.
-- Support future growth through **scalable, maintainable code** and **AI-powered tools**.
+- **Framework**: Next.js 15 with App Router
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS with custom brand colors
+- **UI Components**: shadcn/ui components
+- **Icons**: Lucide React & Radix UI Icons
+- **Backend**: Supabase (Database, Auth, Storage)
+- **Fonts**: Inter (body) & Playfair Display (headings)
 
----
+## 🎨 Brand Colors
 
-## 🛠️ Tech Stack
+- **Primary**: Pink (#FFC0CB)
+- **Accent**: Gold (#FFD700)
+- **Background**: White (#FFFFFF)
 
-| Category         | Technology           |
-|------------------|---------------------|
-| **Frontend**     | Next.js (React), Tailwind CSS |
-| **Backend**      | Supabase (PostgreSQL, Auth, Storage) |
-| **Styling**      | Tailwind CSS, ShadCN UI |
-| **Hosting**      | Vercel |
-| **AI Integration** | Cursor IDE, GitHub Copilot, ChatGPT |
-| **Version Control** | Git + GitHub |
+## 📁 Project Structure
 
----
-
-## 🤖 AI Integration Strategy
-
-This project embraces AI to **accelerate development** and **enhance quality**:
-
-1. **Code Generation**  
-   - Using **Cursor IDE** and **GitHub Copilot** to scaffold pages, components, and boilerplate code quickly.
-   - Generating initial API endpoints, data models, and UI layouts with minimal manual repetition.
-
-2. **Testing & QA**  
-   - AI-assisted test case generation for both unit and integration testing.
-   - ChatGPT prompts for finding **edge cases** and **performance bottlenecks**.
-
-3. **Code Review**  
-   - AI-driven code reviews using pre-defined prompts to ensure:
-     - Clean, maintainable code.
-     - Adherence to best practices and security standards.
-
-4. **Content Creation**  
-   - AI tools to help draft engaging **product descriptions** and **marketing copy**.
-
----
-
-## 🚀 Features
-
-- **Homepage** with featured products and promotions.
-- **Product catalog** with filtering and search functionality.
-- **Shopping cart** with real-time updates.
-- **Secure checkout** integrated with Supabase.
-- **User authentication** (Sign Up, Login, and Profile management).
-- **Mobile-first design** ensuring a responsive and smooth user experience.
-
----
-
-## 🗂️ Project Structure
-
+```
 jcarley-cosmetics/
-├── public/ # Static assets
+├── public/              # Static assets (logo, images)
 ├── src/
-│ ├── components/ # Reusable UI components
-│ ├── pages/ # Next.js pages
-│ ├── styles/ # Global and custom styles
-│ ├── lib/ # Utility functions & API calls
-│ └── hooks/ # Custom React hooks
-├── .env.local # Environment variables
-├── package.json
-└── README.md
+│   ├── app/            # Next.js App Router pages
+│   │   ├── about/      # About page
+│   │   ├── contact/    # Contact page
+│   │   ├── products/   # Products page
+│   │   ├── globals.css # Global styles with brand colors
+│   │   ├── layout.tsx  # Root layout with fonts & metadata
+│   │   └── page.tsx    # Home page
+│   ├── components/     # Reusable UI components
+│   │   ├── Header.tsx  # Navigation header
+│   │   ├── Footer.tsx  # Site footer
+│   │   ├── Layout.tsx  # Page layout wrapper
+│   │   └── ProductCard.tsx # Product display component
+│   └── lib/            # Utility functions & API calls
+│       ├── utils.ts    # Utility functions
+│       └── supabaseClient.ts # Supabase configuration
+├── .env.example        # Environment variables template
+├── components.json     # shadcn/ui configuration
+├── tailwind.config.ts  # Tailwind CSS configuration
+└── tsconfig.json       # TypeScript configuration
+```
 
-Deployment
+## 🛠️ Getting Started
 
-The site will be hosted on Vercel for seamless integration with Next.js:
+### Prerequisites
 
-Automatic deployments from main branch.
+- Node.js 18+ 
+- npm, yarn, pnpm, or bun
+- Supabase account (for backend services)
 
-Preview deployments for pull requests.
+### Installation
 
-📌 Roadmap
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd jcarley-cosmetics
+   ```
 
- Initial setup with Next.js, Tailwind, and Supabase.
+2. **Install dependencies**
+   ```bash
+   npm install
+   # or
+   yarn install
+   # or
+   pnpm install
+   ```
 
- Implement user authentication.
+3. **Set up environment variables**
+   ```bash
+   cp .env.example .env.local
+   ```
+   
+   Fill in your Supabase credentials:
+   ```env
+   NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+   ```
 
- Build product catalog and search functionality.
+4. **Start the development server**
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   # or
+   pnpm dev
+   ```
 
- Shopping cart & checkout flow.
+5. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000)
 
- AI-powered product description generation.
+## 🗄️ Database Setup (Supabase)
 
- Finalize responsive, vibrant UI.
+### Required Tables
 
- Deploy to production.
+Create these tables in your Supabase database:
 
-💡 Contribution Guidelines
+```sql
+-- Products table
+CREATE TABLE products (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  name TEXT NOT NULL,
+  description TEXT,
+  price DECIMAL(10,2) NOT NULL,
+  image_url TEXT,
+  category TEXT,
+  in_stock BOOLEAN DEFAULT true,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
 
-We welcome contributions!
+-- Categories table
+CREATE TABLE categories (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  name TEXT NOT NULL,
+  description TEXT,
+  image_url TEXT,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
 
-Fork the repository and create a feature branch.
+-- Cart items table
+CREATE TABLE cart_items (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  product_id UUID REFERENCES products(id),
+  quantity INTEGER DEFAULT 1,
+  user_id UUID,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+```
 
-Follow clean code practices.
+## 🎨 Customization
 
-Run tests before submitting a PR.
+### Brand Colors
+Update the CSS variables in `src/app/globals.css`:
 
-Document new features and changes in the README.
+```css
+:root {
+  --primary: #FFC0CB; /* Pink */
+  --accent: #FFD700;  /* Gold */
+  --background: #FFFFFF; /* White */
+}
+```
 
-🖌️ Branding
+### Adding New Components
+Use shadcn/ui to add new components:
 
-Primary Colors: Pink, white, gold accents.
+```bash
+npx shadcn@latest add button
+npx shadcn@latest add card
+npx shadcn@latest add dialog
+```
 
-Design Style: Vibrant, fun, feminine, and modern.
+## 📱 Pages
 
-Logo: A colorful, attractive logo for jCarley Cosmetics.
+- **Home** (`/`): Hero section, featured products, brand highlights
+- **Products** (`/products`): Product catalog with filtering and search
+- **About** (`/about`): Company story, values, team information
+- **Contact** (`/contact`): Contact form, company info, FAQ
 
-📬 Contact
+## 🚀 Deployment
 
-For inquiries, visit our physical store or reach out online:
+### Vercel (Recommended)
 
-📍 Njoro Town, 50 Meters from Sumkam Supermarket
+1. Push your code to GitHub
+2. Connect your repository to Vercel
+3. Add environment variables in Vercel dashboard
+4. Deploy!
 
-🌐 Website: (Coming Soon)
+### Other Platforms
 
-Made with ❤️ by jCarley Cosmetics Team
+The app can be deployed to any platform that supports Next.js:
+- Netlify
+- Railway
+- DigitalOcean App Platform
+- AWS Amplify
+
+## 📝 Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- [Next.js](https://nextjs.org/) - The React framework
+- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
+- [shadcn/ui](https://ui.shadcn.com/) - Beautiful UI components
+- [Supabase](https://supabase.com/) - Backend as a Service
+- [Lucide React](https://lucide.dev/) - Beautiful icons
+- [Unsplash](https://unsplash.com/) - Stock photos for mockups
+
+---
+
+Built with ❤️ for jCarley Cosmetics
