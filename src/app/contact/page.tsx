@@ -50,7 +50,8 @@ export default function Contact() {
       icon: Mail,
       title: 'Email Us',
       details: 'hello@jcarley.com',
-      description: 'We\'ll respond within 24 hours',
+      description: 'We&apos;ll respond within 24 hours',
+
     },
     {
       icon: Phone,
@@ -87,7 +88,8 @@ export default function Contact() {
     },
     {
       question: 'How can I track my order?',
-      answer: 'Once your order ships, you\'ll receive a tracking number via email to monitor your package\'s progress.',
+      answer: 'Once your order ships, you&apos;ll receive a tracking number via email to monitor your package&apos;s progress.',
+
     },
   ]
 
@@ -104,7 +106,7 @@ export default function Contact() {
               </span>
             </h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              We'd love to hear from you. Send us a message and we'll respond as soon as possible.
+              We&apos;d love to hear from you. Send us a message and we&apos;ll respond as soon as possible.
             </p>
           </div>
         </div>
@@ -189,7 +191,7 @@ export default function Contact() {
                     Message Sent!
                   </h3>
                   <p className="text-green-700">
-                    Thank you for contacting us. We'll get back to you within 24 hours.
+                    Thank you for contacting us. We&apos;ll get back to you within 24 hours.
                   </p>
                 </div>
               ) : (
