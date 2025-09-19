@@ -1,11 +1,42 @@
-import { createClient } from '@supabase/supabase-js'
+import { createBrowserClient } from '@supabase/ssr'
+import { createServerClient } from '@supabase/ssr'
+import { cookies } from 'next/headers'
 
 // Supabase configuration for jCarley Cosmetics
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 
-// Create Supabase client for client-side operations
-export const supabase = createClient(supabaseUrl, supabaseAnonKey)
+// Create Supabase client for client-side operations (browser)
+export const createClient = () => {
+  return createBrowserClient(supabaseUrl, supabaseAnonKey)
+}
+
+// Create Supabase client for server-side operations
+export const createServerSupabaseClient = async () => {
+  const cookieStore = await cookies()
+  
+  return createServerClient(supabaseUrl, supabaseAnonKey, {
+    cookies: {
+      getAll() {
+        return cookieStore.getAll()
+      },
+      setAll(cookiesToSet) {
+        try {
+          cookiesToSet.forEach(({ name, value, options }) =>
+            cookieStore.set(name, value, options)
+          )
+        } catch {
+          // The `setAll` method was called from a Server Component.
+          // This can be ignored if you have middleware refreshing
+          // user sessions.
+        }
+      },
+    },
+  })
+}
+
+// Legacy export for backward compatibility
+export const supabase = createClient()
 
 // Database types for jCarley Cosmetics
 export interface Product {
@@ -38,6 +69,7 @@ export interface CartItem {
 
 // Helper functions for common operations
 export const getProducts = async () => {
+  const supabase = createClient()
   const { data, error } = await supabase
     .from('products')
     .select('*')
@@ -53,6 +85,7 @@ export const getProducts = async () => {
 }
 
 export const getProductById = async (id: string) => {
+  const supabase = createClient()
   const { data, error } = await supabase
     .from('products')
     .select('*')
@@ -68,6 +101,7 @@ export const getProductById = async (id: string) => {
 }
 
 export const getCategories = async () => {
+  const supabase = createClient()
   const { data, error } = await supabase
     .from('categories')
     .select('*')
@@ -79,4 +113,21 @@ export const getCategories = async () => {
   }
 
   return data as Category[]
+}
+
+// Server-side helper functions
+export const getProductsServer = async () => {
+  const supabase = await createServerSupabaseClient()
+  const { data, error } = await supabase
+    .from('products')
+    .select('*')
+    .eq('in_stock', true)
+    .order('created_at', { ascending: false })
+
+  if (error) {
+    console.error('Error fetching products:', error)
+    return []
+  }
+
+  return data as Product[]
 }
