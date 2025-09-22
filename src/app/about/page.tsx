@@ -32,7 +32,10 @@ export default function About() {
 
   const team = [
     {
-      name: 'Carley Johnson',
+      name: 'jCarley',
+      bio: 'With over 15 years in the beauty industry, jCarley founded jCarley Cosmetics to create inclusive, high-quality products.',
+
+                jCarley Cosmetics was founded in 2009 by jCarley, a passionate 
       role: 'Founder & CEO',
       image: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=300&h=300&fit=crop',
       bio: 'With over 15 years in the beauty industry, Carley founded jCarley Cosmetics to create inclusive, high-quality products.',

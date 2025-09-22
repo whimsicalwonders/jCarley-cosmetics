@@ -56,14 +56,14 @@ export default function Contact() {
     {
       icon: Phone,
       title: 'Call Us',
-      details: '+1 (555) 123-4567',
-      description: 'Mon-Fri 9AM-6PM EST',
+      details: '+254 111 279 876',
+      description: 'Mon-Fri 9AM-6PM EAT',
     },
     {
       icon: MapPin,
       title: 'Visit Us',
-      details: '123 Beauty Street, New York, NY 10001',
-      description: 'By appointment only',
+      details: 'Nakuru, Njoro (Opp Sumkam Supermarket)',
+      description: 'You are welcome',
     },
     {
       icon: Clock,
@@ -88,7 +88,7 @@ export default function Contact() {
     },
     {
       question: 'How can I track my order?',
-      answer: 'Once your order ships, you&apos;ll receive a tracking number via email to monitor your package&apos;s progress.',
+      answer: 'Once your order ships, you'll receive a tracking number via email to monitor your package's progress.',
 
     },
   ]
